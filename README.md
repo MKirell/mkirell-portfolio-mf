@@ -11,6 +11,22 @@
 
 **Live:** <https://mkirell.com>
 
+## Table of contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Tech stack](#tech-stack)
+- [Quick start](#quick-start)
+- [Configuration](#configuration)
+- [How data flows](#how-data-flows)
+- [Project structure](#project-structure)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Security](#security)
+- [Related repositories](#related-repositories)
+- [License](#license)
+- [Author](#author)
+
 ## Overview
 
 A single-page portfolio that holds **no content of its own**. Names, roles, projects, labels and the
