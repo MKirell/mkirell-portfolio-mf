@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-pr" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="#ed0000"/>
+  <rect y="96" width="640" height="96" fill="#fff"/>
+  <rect y="288" width="640" height="96" fill="#fff"/>
+  <polygon fill="#0e4779" points="0,0 0,480 416,240"/>
+  <polygon fill="#fff" points="138,195 149,225 181,226 155,246 164,276 138,258 112,276 121,246 95,226 127,225"/>
+</svg>
