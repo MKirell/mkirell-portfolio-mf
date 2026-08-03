@@ -429,10 +429,14 @@ function renderHeadTags(portfolio: ApiPortfolio, jsonld: string): string {
 }
 
 export default function seoPrerender(): Plugin {
+  let baseUrl = ''
+
   return {
     name: 'seo-prerender',
+    configResolved(config) {
+      baseUrl = String(config.env.VITE_API_BASE_URL ?? 'http://localhost:3000/api/v1')
+    },
     async transformIndexHtml(html: string) {
-      const baseUrl = process.env.VITE_API_BASE_URL ?? 'http://localhost:3000/api/v1'
       const portfolio = await loadPortfolio(baseUrl)
       const jsonld = JSON.stringify(buildJsonLd(portfolio))
 
