@@ -430,14 +430,24 @@ function renderHeadTags(portfolio: ApiPortfolio, jsonld: string): string {
 
 export default function seoPrerender(): Plugin {
   let baseUrl = ''
+  let isBuild = false
 
   return {
     name: 'seo-prerender',
     configResolved(config) {
       baseUrl = String(config.env.VITE_API_BASE_URL ?? 'http://localhost:3000/api/v1')
+      isBuild = config.command === 'build'
     },
     async transformIndexHtml(html: string) {
-      const portfolio = await loadPortfolio(baseUrl)
+      let portfolio: ApiPortfolio
+      try {
+        portfolio = await loadPortfolio(baseUrl)
+      } catch (error) {
+        if (isBuild) throw error
+        console.warn(`[seo-prerender] skipped — ${(error as Error).message}`)
+        return html
+      }
+
       const jsonld = JSON.stringify(buildJsonLd(portfolio))
 
       let out = html.replace(
